@@ -23,6 +23,28 @@
 @keyframes cheese-reveal{to{opacity:1;transform:translateY(0) scale(1)}}
 @keyframes cheese-drip{to{opacity:1;transform:translateY(80px)}}
 @media(prefers-reduced-motion:reduce){.cheese-finale.active .cheese-wave{animation:none;clip-path:none}.cheese-finale.active .cheese-content{animation:none;opacity:1;transform:none}.cheese-drop{display:none}}
+
+/* Mobile: kein horizontales Scrollen, flexible Inhalte */
+html,body{width:100%;max-width:100%;overflow-x:clip}
+.shell{width:100%;min-width:0}
+.hero,.hero>div,.signup,.signup>div,.form{min-width:0}
+.hero h1{overflow-wrap:normal}
+.deadline{max-width:100%;white-space:normal;overflow-wrap:break-word}
+.cheese-finale{width:100%;max-width:100vw}
+.cheese-content{width:100%;max-width:100vw;overflow-wrap:anywhere}
+@media(max-width:750px){
+ .shell{padding:22px 16px 38px}
+ .hero{gap:0;margin-top:35px}
+ .hero h1{font-size:clamp(36px,10.2vw,72px);letter-spacing:-.065em;max-width:100%}
+ .visual{width:100%;max-width:100%;height:290px;transform:none;overflow:visible}
+ .visual .plate{transform:rotate(-9deg) scale(.78)}
+ .visual .glow{max-width:85vw}
+ .signup{width:100%;padding:20px;gap:20px}
+ .signup h2{font-size:26px}
+ .deadline{font-size:14px;padding:12px}
+ .cheese-content h2{font-size:clamp(34px,11vw,70px)}
+}
+@media(max-width:390px){.hero h1{font-size:10vw}.shell{padding-inline:13px}.visual .plate{transform:rotate(-9deg) scale(.68)}}
 </style>
 </head><body><main class="shell"><header class="top"><div class="club"><img src="logo-fcr.png" alt="FC Rheineck" class="club-logo"></div><div class="tag">SAISON 2026/27</div></header><section class="hero"><div><div class="eyebrow">GEMEINSAM GENIESSEN</div><h1>HINRUNDEN<span>ABSCHLUSS</span></h1><div class="sub">🧀 RACLETTE-ABEND</div><p class="description">Zum Abschluss der Hinrunde treffen wir uns zu einem gemütlichen Raclette-Abend. Sei dabei!</p><div class="details"><div class="pill">📅 <b>27.11.2026</b></div><div class="pill">🕡 <b>18:30 Uhr</b></div><div class="pill">🧀 <b>CHF 25.–</b> / Person</div></div><p class="description" style="font-size:13px">Getränke können über den Kiosk bezogen werden.</p></div><div class="visual" aria-label="Animierte Raclette-Illustration"><div class="glow"></div><div class="steam one">〰</div><div class="steam two">〰</div><div class="plate"><div class="potatoes">🥔🥔</div><div class="pan"><div class="cheese"></div><div class="drip"></div><div class="drip two"></div></div></div></div></section><section class="signup" id="anmeldung"><div><h2>Du bist dabei? 🔥</h2><p>Super! Trage einfach deinen Namen ein. Mehr braucht es nicht.</p><div class="deadline">⏳ Anmeldeschluss: Sonntag, 22.11.2026</div></div><form class="form" id="form"><label for="name">Dein Vor- und Nachname</label><input id="name" name="name" placeholder="z. B. Max Muster" autocomplete="name" maxlength="100" required><button type="submit" id="submit">JETZT ANMELDEN →</button><div class="message" id="message" role="status" aria-live="polite"></div></form></section><div class="footer">FC Rheineck · Hinrundenabschluss 2026</div></main><div class="cheese-finale" id="cheeseFinale" role="dialog" aria-modal="true" aria-labelledby="cheeseTitle"><div class="cheese-wave"></div><div class="cheese-drop a"></div><div class="cheese-drop b"></div><div class="cheese-drop c"></div><div class="cheese-content"><div style="font-size:clamp(60px,12vw,110px)">🧀</div><h2 id="cheeseTitle">ANGEMELDET!</h2><p id="cheeseThanks">Du bist dabei. Wir freuen uns auf dich!</p><button type="button" id="cheeseClose">ZURÜCK ZUR SEITE</button></div></div><script>
 // Hier die bereitgestellte Google Apps Script Web-App-URL eintragen:
